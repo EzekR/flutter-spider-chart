@@ -59,8 +59,9 @@ class SpiderChartPainter extends CustomPainter {
     ..style = PaintingStyle.fill;
 
   final Paint stroke = Paint()
-    ..color = Color.fromARGB(255, 50, 50, 50)
-    ..style = PaintingStyle.stroke;
+    ..color = Color(0xff5B8FF9)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 2.0;
 
   SpiderChartPainter(this.data, this.maxNumber, this.colors, this.labels,
       this.decimalPrecision);
