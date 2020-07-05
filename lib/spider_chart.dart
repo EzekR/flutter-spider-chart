@@ -55,7 +55,7 @@ class SpiderChartPainter extends CustomPainter {
   final Paint spokes = Paint()..color = Colors.grey;
 
   final Paint fill = Paint()
-    ..color = Color.fromARGB(15, 50, 50, 50)
+    ..color = Color.fromRGBO(91, 143, 249, 0.25)
     ..style = PaintingStyle.fill;
 
   final Paint stroke = Paint()
