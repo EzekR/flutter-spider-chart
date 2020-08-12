@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'dart:math' show pi, cos, sin;
+import 'package:flutter/gestures.dart';
 
 class SpiderChart extends StatelessWidget {
   final List<double> data;
@@ -14,6 +15,8 @@ class SpiderChart extends StatelessWidget {
   final Size size;
   final double fallbackHeight;
   final double fallbackWidth;
+  // text tap event
+  final List events;
 
   SpiderChart({
     Key key,
@@ -25,6 +28,7 @@ class SpiderChart extends StatelessWidget {
     this.decimalPrecision = 0,
     this.fallbackHeight = 200,
     this.fallbackWidth = 200,
+    this.events
   })  : assert(data.length == colors.length,
             'Length of data and color lists must be equal'),
         assert(labels != null ? data.length == labels.length : true,
@@ -123,7 +127,8 @@ class SpiderChartPainter extends CustomPainter {
     for (var i = 0; i < points.length; i++) {
       String s = data[i].toStringAsFixed(decimalPrecision);
       textPainter.text =
-          TextSpan(text: s, style: TextStyle(color: Colors.black));
+          TextSpan(text: s, style: TextStyle(color: Colors.black), recognizer: new TapGestureRecognizer()..onTap = () => print('Tap Here onTap'),
+          );
       textPainter.layout();
       if (points[i].dx < center.dx) {
         textPainter.paint(
